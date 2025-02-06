@@ -9,14 +9,14 @@ public class project{
     Cake straw = new Cake(1002, "Strawberry", 25.1);
     Customer guest1 = new Customer(101, "Jerry", "Bukit Panjang", 999);
     Customer guest2 = new Customer(102, "Yin Xuan", "Malay", 991);
-    Order order1 = new Order(04, 02, 2025, 1, 1001);
-    Order order2 = new Order(05, 03, 2025, 2, 1002);
+    Order order1 = new Order(04, 03, 2025, 1, 101, 1001);
+    Order order2 = new Order(05, 03, 2025, 2, 102, 1002);
     cake[0] = new String[]{String.valueOf(choco.getCakeCode()), choco.getCakeName(), String.valueOf(choco.getCakePrice())};
     cake[1] = new String[]{String.valueOf(straw.getCakeCode()), straw.getCakeName(), String.valueOf(straw.getCakePrice())};
     customer[0] = new String[]{String.valueOf(guest1.getCustomerID()), guest1.getCustomerName(), guest1.getCustomerAddress(), String.valueOf(guest1.getCustomerContact())};
     customer[1] = new String[]{String.valueOf(guest2.getCustomerID()), guest2.getCustomerName(), guest2.getCustomerAddress(), String.valueOf(guest2.getCustomerContact())};
-    order[0] = new String[]{String.valueOf(order1.getDay()), String.valueOf(order1.getMonth()), String.valueOf(order1.getYear()),String.valueOf(order1.getOrderID()), String.valueOf(order1.getCakeOrder())};
-    order[1] = new String[]{String.valueOf(order2.getDay()), String.valueOf(order2.getMonth()), String.valueOf(order2.getYear()),String.valueOf(order2.getOrderID()), String.valueOf(order2.getCakeOrder())};
+    order[0] = new String[]{String.valueOf(order1.getCakeOrder()), order1.getFormattedDate(), String.valueOf(order1.getOrderID()), String.valueOf(order1.getOrderCustomerID()), };
+    order[1] = new String[]{String.valueOf(order2.getCakeOrder()), order2.getFormattedDate(), String.valueOf(order2.getOrderID()), String.valueOf(order2.getOrderCustomerID())};
     Scanner input = new Scanner(System.in); 
     while (true) {
       System.out.print("***Main Menu***\n1. Manage Cakes\n2. Manage Customers\n3. Manage Orders\n4. Generate Report\n0. Exit\n"); 
@@ -34,10 +34,10 @@ public class project{
         customer = Customer.CustomerMenu(input, customer);
         break;
       case 3:
-        order = Order.OrderCustomer(input, order);        
+        order = Order.OrderCustomer(input, customer, cake, order);        
         break;
       case 4:
-        Report.GenerateReport(input, cake, order, customer);
+        Report.GenerateReport(input, order);
         break;
       default:
         System.out.println("Invalid input");

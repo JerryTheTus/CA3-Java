@@ -27,7 +27,7 @@ public class project{
       switch (option) {
       case 0:
         input.close();
-        System.out.println("\nThank you for using the Cake Ordering System.");
+        System.out.println("\nThank you for using the Cake Ordering System <3 [Cake].");
         return;
       case 1:
         cake = Cake.CakeMenu(input, cake);

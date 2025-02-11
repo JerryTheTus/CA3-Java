@@ -108,11 +108,15 @@ public class Order {
           System.out.println();
         }
       } catch (InputMismatchException e){
-          System.out.println("Error: Invalid inputs!");
+          System.out.println("\nError: Invalid inputs!");
       }
         break;
       case 2:
       try{
+        if (order.length == 0){
+          System.out.println("\nNo more order");
+          break;
+        }
         System.out.print("\nEnter Order ID: ");
         int oID = input.nextInt();
         if (checkOrderExistence(order, oID)){
@@ -131,12 +135,12 @@ public class Order {
           break;
         }
       } catch (InputMismatchException e){
-        System.out.println("Error: Invalid inputs!");
+        System.out.println("\nError: Invalid inputs!");
       }
         break;
       case 3:
         if (order.length == 0) {
-          System.out.println("No orders to display.");
+          System.out.println("\nNo order to display.");
         } 
         else {
           System.out.println("\nViewing all orders");

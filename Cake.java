@@ -53,7 +53,7 @@ public class Cake {
           newCake [cake.length] = new String[]{String.valueOf(newCakeCode), newCakeName, String.valueOf(newCakePrice)};
           cake = newCake;
         } catch (InputMismatchException e){
-          System.out.println("Error: Invalid inputs!");
+          System.out.println("\nError: Invalid inputs!");
         }
           break;
         case 2:
@@ -88,11 +88,15 @@ public class Cake {
           }
         }
         catch (InputMismatchException e){
-            System.out.println("Error: Invalid inputs!");
+            System.out.println("\nError: Invalid inputs!");
         }
           break;
         case 3:
         try{
+          if (cake.length == 0){
+            System.out.println("\nThere are no cake");
+            break;
+          }
           System.out.print("\nEnter Cake Code to delete: ");
           int deleteCakeCode = input.nextInt();
           input.nextLine();
@@ -115,7 +119,7 @@ public class Cake {
           break;
         case 4:
           if (cake.length == 0){
-            System.out.println("Out of Cake");
+            System.out.println("\nOut of Cake");
           }
           else{         
             System.out.println("\nAll Cakes: ");

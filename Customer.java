@@ -101,11 +101,15 @@ public class Customer {
           }
         }
       } catch (InputMismatchException e){
-        System.out.println("Error: Invalid inputs!");
+        System.out.println("\nError: Invalid inputs!");
       }
           break;
       case 3:
       try{
+        if (customer.length == 0){
+          System.out.println("\nThere are no customer");
+          break;
+        }
         System.out.print("\nEnter Customer's ID to remove: ");
         int removeID = input.nextInt();
         if (checkIDExistence(customer, removeID)) {
@@ -122,7 +126,7 @@ public class Customer {
           System.out.println("\nError: No ID found.");
       }        
     } catch (InputMismatchException e){
-      System.out.println("Error: Invalid inputs!");
+      System.out.println("\nError: Invalid inputs!");
     }
         break;
       case 4:
